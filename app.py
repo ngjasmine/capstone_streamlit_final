@@ -98,7 +98,7 @@ elif selected == 'Road Bike Pricing Predictor':
         x4 = st.text_input("x4", placeholder="examples: advanced, bike, carbon, di2, oclv, shimano, ultimate")
         x5 = st.text_input("x5", placeholder="examples: bike, dura, endurace, frame, pro, shimano, ultegra")
 
-        df = pd.read_csv('../data/final_for_pycaret.csv')
+        df = pd.read_csv('./data/final_for_pycaret.csv')
         df=df.drop(columns='price')
         categorical_cols = ['title', 'item_condition', 'deal_method', 'post_date', 'category_type', 'post_type', 'condition_subtext',
                             'mailing_option', 'meetup_option', 'meetup_location', 'seller_id', 'seller_join_date',
@@ -156,7 +156,7 @@ elif selected == 'Road Bike Pricing Predictor':
         input_data_encoded=find_nearest_neighbor(title, item_condition, condition_subtext, x1, x2, x3, x4, x5)
         # st.write(input_data_encoded) #this outputs the row with user inputs and knn of other columns
 
-        model=load_model('../code/best_model')
+        model=load_model('./code/best_model')
 
         # Make predictions using the loaded model and the transformed input data
         predictions = model.predict(input_data_encoded)
