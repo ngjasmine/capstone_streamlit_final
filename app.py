@@ -149,7 +149,7 @@ elif selected == 'Road Bike Pricing Predictor':
 
         @st.cache(allow_output_mutation=True)
         def load_pycaret_model():
-            return load_model('./code/best_model')
+            return load_model('./code/best_model', use_gpu=True)
 
     with col2:
         st.markdown("<h2 style='text-align: center; color: black;'>Results</h2>", unsafe_allow_html=True)
