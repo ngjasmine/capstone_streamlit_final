@@ -112,7 +112,7 @@ elif selected == 'Road Bike Pricing Predictor':
         # Train the Nearest Neighbors model
         nn_model = NearestNeighbors(n_neighbors=1).fit(encoded_df)
 
-        @st.cache(allow_output_mutation=True)
+        
         def find_nearest_neighbor(title, item_condition, condition_subtext, x1, x2, x3, x4, x5):
             # Create a complete DataFrame with placeholders
             complete_input = pd.DataFrame([df.mode().loc[0]], columns=df.columns)
@@ -147,9 +147,6 @@ elif selected == 'Road Bike Pricing Predictor':
 
             return complete_input
 
-        @st.cache(allow_output_mutation=True)
-        def load_pycaret_model():
-            return load_model('./code/best_model', use_gpu=True)
 
     with col2:
         st.markdown("<h2 style='text-align: center; color: black;'>Results</h2>", unsafe_allow_html=True)
@@ -161,7 +158,6 @@ elif selected == 'Road Bike Pricing Predictor':
         input_data_encoded=find_nearest_neighbor(title, item_condition, condition_subtext, x1, x2, x3, x4, x5)
         # st.write(input_data_encoded) #this outputs the row with user inputs and knn of other columns
 
-        # model=load_model('./code/best_model')
         model = load_pycaret_model() 
 
         # Make predictions using the loaded model and the transformed input data
