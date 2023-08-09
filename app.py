@@ -172,9 +172,9 @@ elif selected == 'Road Bike Pricing Predictor':
         with col2:
             if predictions[0] == 'High':
                 st.write("The predicted price class is: 2")
-            elif predictions[1] == 'Med':
+            elif predictions[0] == 'Med':
                 st.write("The predicted price class is: 1")
-            else:
+            elif predictions[0] == 'Low':
                 st.write("The predicted price class is: 0")
             # st.write("Predicted Price:", predictions['Label'][0])
             # Create a DataFrame
