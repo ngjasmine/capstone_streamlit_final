@@ -170,8 +170,12 @@ elif selected == 'Road Bike Pricing Predictor':
         #for class_name, probability in zip(class_probabilities.index, class_probabilities.values):
         #    st.write(f"Probability of Class '{class_name}': {probability:.4f}")
         with col2:
-
-            st.write("The predicted price class is:", predictions[0])
+            if predictions[0] == 'High':
+                st.write("The predicted price class is: 2")
+            elif predictions[1] == 'Med':
+                st.write("The predicted price class is: 1")
+            else:
+                st.write("The predicted price class is: 0")
             # st.write("Predicted Price:", predictions['Label'][0])
             # Create a DataFrame
             class_df = pd.DataFrame({
